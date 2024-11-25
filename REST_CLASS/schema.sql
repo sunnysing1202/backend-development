@@ -1,0 +1,7 @@
+
+
+CREATE TABLE IF NOT EXISTS posts (
+    id VARCHAR(36) PRIMARY KEY,
+    username VARCHAR(255) NOT NULL,
+    content TEXT NOT NULL
+);

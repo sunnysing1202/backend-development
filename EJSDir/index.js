@@ -4,6 +4,9 @@ const path = require("path");
 
 const port = 8080;
 
+app.use(express.urlencoded({entended: true}));
+app.use(express.json());
+
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "/views"));
 
@@ -18,7 +21,7 @@ app.get("/ig/:username", (req, res) => {
     if(data) {
         res.render("instagram.ejs", {data});
     } else {
-        res.status(404).send("user not found!!");
+        res.render("error.ejs");
     }
         
 });

@@ -1,0 +1,328 @@
+/* Base styling for HTML and Body */
+html, body {
+    min-height: 100%;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    /* Light modern gradient background */
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    /* Alternative gradients you can try:
+    background: linear-gradient(120deg, #fdfbfb 0%, #ebedee 100%);
+    background: linear-gradient(to right, #f8f9fa, #e9ecef);
+    background: linear-gradient(45deg, #f3f4f6 0%, #fff 100%);
+    */
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
+    color: #2d3748;
+    padding: 2rem 0;
+    min-height: 100vh;
+    box-sizing: border-box;
+}
+
+/* Container styling for better content width control */
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 1rem;
+}
+
+/* Smooth scrolling for the whole page */
+html {
+    scroll-behavior: smooth;
+}
+
+/* Selection color when user selects text */
+::selection {
+    background: #3498db;
+    color: white;
+}
+
+/* Modern scrollbar styling */
+::-webkit-scrollbar {
+    width: 10px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Card grid styling */
+.row {
+    margin-top: 1rem;
+}
+
+/* Responsive padding adjustments */
+@media (max-width: 768px) {
+    body {
+        padding: 1rem 0;
+    }
+
+    .container {
+        padding: 0 0.75rem;
+    }
+}
+
+/* Typography baseline */
+h1, h2, h3, h4, h5, h6 {
+    margin: 0;
+    padding: 0;
+    line-height: 1.2;
+}
+
+/* Optional: Add a subtle pattern overlay */
+body::before {
+    content: '';
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    /* Subtle dot pattern */
+    background-image: radial-gradient(#000 1px, transparent 1px);
+    background-size: 50px 50px;
+    opacity: 0.03;
+}
+
+.header-container {
+    padding: 2rem 0;
+    margin-bottom: 3rem;
+    position: relative;
+}
+
+.page-title {
+    font-size: 2.5rem;
+    font-weight: 600;
+    color: #2c3e50;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    margin-bottom: 0.5rem;
+}
+
+.title-underline {
+    width: 80px;
+    height: 4px;
+    background: linear-gradient(to right, #3498db, #2ecc71);
+    margin: 0 auto;
+    border-radius: 2px;
+}
+
+/* Optional animation on page load */
+@keyframes slideIn {
+    from {
+        transform: translateY(-20px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.header-container {
+    animation: slideIn 0.5s ease-out forwards;
+}
+
+.card-body {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;  /* ensure card body takes full height */
+    padding: 1.75rem;
+}
+
+.content {
+    flex: 1;  /* this will push the button group to bottom */
+}
+
+/* your button group div */
+.d-flex.flex-column.gap-2 {
+    margin-top: auto;  /* pushes it to the bottom */
+}
+
+/* Customizing Bootstrap's shadow classes */
+.shadow {
+    box-shadow: 0 0.5rem 1.5rem rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Add hover effect to Bootstrap's shadow class */
+.shadow:hover {
+    box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+    transform: translateY(-3px);
+    transition: all 0.3s ease;
+}
+
+/* Modern, Clean Style */
+.card {
+    font-family: 'Poppins', sans-serif;
+    background: #ffffff;
+    border: none;
+    border-radius: 12px;
+
+}
+
+.card .user {
+    font-family: 'Playfair Display', serif;
+    font-weight: 600;
+    font-size: 1.5rem;
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+.card .content {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 1rem;
+    line-height: 1.6;
+    color: #4a5568;
+    letter-spacing: 0.3px;
+    margin: 1.5rem 0;
+}
+
+/* Enhanced Typography Styles */
+.card .user::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 50px;
+    height: 3px;
+    background: #3498db;
+    border-radius: 2px;
+}
+
+/*content*/
+
+.content-preview {
+    position: relative;
+}
+
+.content-preview .content {
+    margin-bottom: 8px;
+}
+
+.read-more {
+    color: #0d6efd;
+    text-decoration: none;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/* Button styling */
+.btn {
+    border-radius: 8px;
+    padding: 0.5rem 1.25rem;
+    text-transform: uppercase;
+    font-size: 0.875rem;
+}
+
+
+.button-container {
+    width: 100%;
+}
+
+
+
+/* Responsive button container */
+@media (min-width: 768px) {  /* Desktop styles */
+    .button-container form {
+        margin: 0;    /* Remove margin on desktop */
+        flex: 1;      /* Make all buttons equal width */
+    }
+
+    .button-container .btn {
+        height: 100%; /* Make all buttons same height */
+    }
+}
+
+@media (max-width: 767px) {  /* Mobile styles */
+    .button-container {
+        flex-direction: column;
+    }
+
+    .button-container .btn,
+    .button-container form {
+        width: 100%;
+        margin-bottom: 0.5rem;
+    }
+}
+
+/*create button*/
+.btn-create-simple {
+    padding: 0.5rem 1.5rem;
+    font-size: 0.95rem;
+    border-radius: 6px;
+    text-decoration: none;
+    background-color: #0d6efd;
+    color: white;
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
+    transition: all 0.3s ease;
+}
+
+.btn-create-simple:hover {
+    background-color: #0b5ed7;
+    color: white;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 8px rgba(13, 110, 253, 0.3);
+}
+
+.btn-create-simple:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(13, 110, 253, 0.2);
+}
+
+/*SHOW PAGE*/
+
+
+.btn-sm {
+    font-size: 0.875rem;
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+}
+
+/*EDIT PAGE*/
+
+.form-control {
+    border-radius: 4px;
+    border: 1px solid #ced4da;
+    resize: vertical;
+    min-height: 120px;
+}
+
+.form-control:focus {
+    border-color: #86b7fe;
+    box-shadow: 0 0 0 0.25rem rgba(13,110,253,.25);
+}
+
+.user {
+    font-size: 1.1rem;
+    color: #333;
+}
+
+.text-muted {
+    font-size: 0.9rem;
+}
+
+.btn-primary {
+    background-color: #0d6efd;
+    border-color: #0d6efd;
+}
+
+.btn-primary:hover {
+    background-color: #0b5ed7;
+    border-color: #0a58ca;
+}

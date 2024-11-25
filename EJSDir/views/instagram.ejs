@@ -1,13 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Instagram Page</title>
-</head>
+<%- include("includes/head.ejs") %>
 <body>
     <h2>this page belongs to @<%= data.name %> </h2>
     <p>followers : <%= data.followers %> &nbsp; &nbsp; &nbsp; &nbsp; followings: <%= data.following %></p>
+
+    <% for(let post of data.posts) { %>
+        <img src="<%= post.image %>" alt="some img" />
+        <p>
+            Likes : <%= post.likes %> &nbsp;&nbsp;&nbsp;Comments : <%= post.comments %>
+        </p>
+    <% } %>
 
     
 </body>
