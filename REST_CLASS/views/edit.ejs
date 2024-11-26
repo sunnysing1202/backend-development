@@ -17,16 +17,16 @@
     <div class="card mx-lg-auto mx-2 w-lg-50">
         <div class="card-body">
             <div class="post-info mb-3">
-                <p class="text-muted mb-1">Post id: <b><%= post.id %></b></p>
-                <h3 class="user mb-3">@<%= post.username %></h3>
+                <p class="text-muted mb-1">Blog id: <b><%= blog.id %></b></p>
+                <h3 class="user mb-3">@<%= blog.username %></h3>
             </div>
-            <form method="post" action="/posts/<%= post.id %>?_method=PATCH" class="edit-post-form">
+            <form method="post" action="/posts/<%= blog.id %>?_method=PATCH" class="edit-post-form">
                 <div class="form-group">
                     <textarea
                             class="form-control mb-3"
                             rows="6"
                             name="content"
-                            placeholder="Write your post here..."><%= post.content %></textarea>
+                            placeholder="Write your post here..."><%= blog.content %></textarea>
                 </div>
                 <div class="d-flex justify-content-end">
                     <button class="btn btn-primary btn-sm px-3">Update Post</button>

@@ -60,7 +60,7 @@ app.post("/posts", (req, res) => {
 
 // Route to display all posts
 app.get("/posts", (req, res) => {
-    const q = 'SELECT * FROM posts';
+    const q = 'SELECT * FROM posts ORDER BY createdAt ASC';
 
     try {
         connection.query(q, (err, blogs) => {
@@ -112,26 +112,53 @@ app.get("/posts/:id", (req, res) => {
     }
 });
 
-
-
 app.patch("/posts/:id", (req, res) => {
     let { id } = req.params;
     let newContent = req.body.content;
-    let post = posts.find((p) => id === p.id);
-    post.content = newContent;
-    res.redirect("/posts")
+    const q = `UPDATE posts SET content = ? WHERE ID = ?`;
+
+    try {
+        connection.query(q, [newContent, id], (err, blog) => {
+            if(err) throw err;
+            console.log(blog);
+            res.redirect("/posts");
+        })
+    } catch(err) {
+        console.log(err);
+        res.send("some error while editing :( ");
+    }
+
 })
 
 app.get("/posts/:id/edit", (req, res) => {
     let { id } = req.params;
-    let post = posts.find((p) => id === p.id);
-    res.render("edit.ejs", { post });
+    const q = `SELECT * FROM posts WHERE id = ?`;
+
+    try {
+        connection.query(q, [ id ], (err, blogs) => {
+            if(err) throw err;
+
+            res.render("edit.ejs", { blog : blogs[0] });
+        })
+    } catch(err) {
+        console.log(err);
+        res.send("some error occured");
+    }
 })
 
 app.delete("/posts/:id", (req, res) => {
     let { id } = req.params;
-    posts = posts.filter((p) => id !== p.id);
-    res.redirect("/posts");
+    const q = `DELETE FROM posts WHERE id = ?`;
+
+    try {
+        connection.query(q, [ id ], (err, blog) => {
+            if(err) throw err;
+            res.redirect("/posts");
+        })
+    } catch(err) {
+        console.log(err);
+        res.send("some error while deleting");
+    }
 })
 
 app.listen(port, () => {
